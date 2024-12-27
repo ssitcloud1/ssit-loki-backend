@@ -118,8 +118,7 @@ public class EmployeeManagerServiceImpl implements EmployeeManagerService {
                         new UsernamePasswordAuthenticationToken(loginDTO.getEmail(), loginDTO.getPassword()));
                 if (authentication.isAuthenticated()){
                     String token = jwtService.generateToken(loginDTO.getEmail());
-                    return new LoginResponse("Login Success",true,employee.getRole(),token);
-                } else {
+                    return new LoginResponse("Login Success",true,employee.getRole(),token,employee.getFirstName(),employee.getLastName(),employee.getEmployeeId());                } else {
                     return new LoginResponse("Authentication failed", false, null,null);
                 }
             } else {

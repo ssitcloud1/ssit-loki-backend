@@ -7,15 +7,20 @@ public class LoginResponse {
 
     private String message;
     private Boolean status;
-    private String role; // Add this field
+    private String role;
     private String token;
+    private String firstName;
+    private String lastName;
+    private String employeeId;
 
+    // Constructor with basic fields
     public LoginResponse(String message, Boolean status, String role) {
         this.message = message;
         this.status = status;
-        this.role = role; // Initialize the role
+        this.role = role;
     }
 
+    // Constructor with token
     public LoginResponse(String message, Boolean status, String role, String token) {
         this.message = message;
         this.status = status;
@@ -23,8 +28,19 @@ public class LoginResponse {
         this.token = token;
     }
 
-    public LoginResponse() {
+    // Constructor with all fields
+    public LoginResponse(String message, Boolean status, String role, String token, String firstName, String lastName, String employeeId) {
+        this.message = message;
+        this.status = status;
+        this.role = role;
+        this.token = token;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.employeeId = employeeId;
     }
+
+    // Default constructor
+    public LoginResponse() {}
 
     @Override
     public String toString() {
@@ -33,6 +49,9 @@ public class LoginResponse {
                 ", status=" + status +
                 ", role='" + role + '\'' +
                 ", token='" + token + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", employeeId='" + employeeId + '\'' +
                 '}';
     }
 }
